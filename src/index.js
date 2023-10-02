@@ -23,10 +23,10 @@ document.querySelector('.check').addEventListener('click', () => {
         guess > numberAleatory ? '📈 Too high!' : '📉 Too low!';
     }
   }
-  if (score > 0) {
+  if (guess != numberAleatory) {
     score--;
     document.querySelector('.score').textContent = score;
-  } else {
+  } else if (score == 0) {
     document.querySelector('.message').textContent = '💥 You lost the game!';
   }
 
@@ -62,17 +62,16 @@ document.querySelector('.check').addEventListener('click', () => {
   // }
 });
 
-// Adding event of reintialization of the game
-
-// document.querySelector('.btn.again').addEventListener('click', () => {
-//   document.querySelector('body').style.backgroundColor = '#222';
-//   document.querySelector('.guess').value = '';
-//   document.querySelector('.message').textContent = 'Start guessing...';
-//   document.querySelector('.score').textContent = 20;
-//   numberAleatory;
-//   document.querySelector('.number').textContent = numberAleatory;
-//   document.querySelector('.number').textContent = '?';
-// });
+//Adding event of reintialization of the game
+document.querySelector('.btn.again').addEventListener('click', () => {
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.guess').value = '';
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.score').textContent = 20;
+  numberAleatory;
+  document.querySelector('.number').textContent = numberAleatory;
+  document.querySelector('.number').textContent = '?';
+});
 
 // Adding event of confirm for resetting or not the game
 

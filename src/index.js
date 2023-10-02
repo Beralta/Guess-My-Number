@@ -112,3 +112,10 @@ document.querySelector('.btn.ok').addEventListener('click', () => {
 document.querySelector('.btn.Cancel').addEventListener('click', () => {
   closeModal();
 });
+
+//Adding event for utilization of 'Esc' for to remove the table of options "cancel" and "Yes"
+document.addEventListener('keydown', function (r) {
+  if (r.key == 'Escape' && !modal.classList.contains('hidden')) {
+    closeModal();
+  }
+});

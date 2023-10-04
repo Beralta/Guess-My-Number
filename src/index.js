@@ -2,12 +2,13 @@
 
 let score = 20;
 let highScore = 0;
+
 // Add a random number to be discovered
 let numberAleatory = Math.trunc(Math.random() * 20) + 1;
 document.querySelector('.number').textContent = '?';
 
-// Alter the state of question. Saying if existing a number or not!
-document.querySelector('.check').addEventListener('click', () => {
+// function for store the logic of messages and tips
+function messageInfo() {
   const guess = Number(document.querySelector('.guess').value);
   if (!guess) {
     document.querySelector('.message').textContent = 'Not a number! ⛔';
@@ -29,41 +30,10 @@ document.querySelector('.check').addEventListener('click', () => {
   } else if (score == 0) {
     document.querySelector('.message').textContent = '💥 You lost the game!';
   }
+}
 
-  // const guess = Number(document.querySelector('.guess').value);
-  // if (!guess) {
-  //   document.querySelector('.message').textContent = 'Not a number! ⛔';
-  // } else if (guess > numberAleatory) {
-  //   // altering the state of information for facility the user find the number aleatory
-  //   if (score > 0) {
-  //     document.querySelector('.message').textContent = '📈 Too high!';
-  //     score--;
-  //     document.querySelector('.score').textContent = score;
-  //   } else {
-  //     // User lose
-  //     document.querySelector('.message').textContent = '💥 You lost the game!';
-  //   }
-  // } else if (guess < numberAleatory) {
-  //   if (score != 0) {
-  //     // altering the state of information for facility the user find the number aleatory
-  //     document.querySelector('.message').textContent = +;
-  //     score--;
-  //     document.querySelector('.score').textContent = score;
-  //   } else {
-  //     // User lose
-  //     document.querySelector('.message').textContent = '💥 You lost the game!';
-  //   }
-  // } else if (guess == numberAleatory) {
-  //   document.querySelector('.message').textContent = 'Congratulations! 🥳';
-  //   document.querySelector('body').style.backgroundColor = '#60b347';
-  //   highScore += score;
-  //   document.querySelector('.highscore').textContent = highScore;
-  //   document.querySelector('.number').textContent = numberAleatory;
-  // }
-});
-
-//Adding event of reintialization of the game
-document.querySelector('.btn.again').addEventListener('click', () => {
+// functions for store the logic of reinicialization
+function reintializationOfGame() {
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.guess').value = '';
   document.querySelector('.message').textContent = 'Start guessing...';
@@ -72,6 +42,31 @@ document.querySelector('.btn.again').addEventListener('click', () => {
   numberAleatory;
   document.querySelector('.number').textContent = numberAleatory;
   document.querySelector('.number').textContent = '?';
+}
+
+// function for store the logic of reset
+function resetOfGame() {
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.guess').value = '';
+  document.querySelector('.message').textContent = 'Start guessing...';
+  score = 20;
+  document.querySelector('.score').textContent = 20;
+  highScore = 0;
+  document.querySelector('.highscore').textContent = 0;
+  numberAleatory;
+  document.querySelector('.number').textContent = numberAleatory;
+  document.querySelector('.number').textContent = '?';
+  closeModal();
+}
+
+// Alter the state of question. Saying if existing a number or not!
+document.querySelector('.check').addEventListener('click', () => {
+  messageInfo();
+});
+
+//Adding event of reintialization of the game
+document.querySelector('.btn.again').addEventListener('click', () => {
+  reintializationOfGame();
 });
 
 // Adding event of confirm for resetting or not the game
@@ -97,17 +92,7 @@ for (let i = 0; i < btnsOpenModal.length; i++) {
 
 // Adding event that reset the values of the game
 document.querySelector('.btn.ok').addEventListener('click', () => {
-  document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.guess').value = '';
-  document.querySelector('.message').textContent = 'Start guessing...';
-  score = 20;
-  document.querySelector('.score').textContent = 20;
-  highScore = 0;
-  document.querySelector('.highscore').textContent = 0;
-  numberAleatory;
-  document.querySelector('.number').textContent = numberAleatory;
-  document.querySelector('.number').textContent = '?';
-  closeModal();
+  resetOfGame();
 });
 
 // Adding event for cancel the function of reset

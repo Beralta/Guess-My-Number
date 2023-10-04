@@ -102,6 +102,7 @@ document.querySelector('.btn.ok').addEventListener('click', () => {
   document.querySelector('.message').textContent = 'Start guessing...';
   score = 20;
   document.querySelector('.score').textContent = 20;
+  highScore = 0;
   document.querySelector('.highscore').textContent = 0;
   numberAleatory;
   document.querySelector('.number').textContent = numberAleatory;

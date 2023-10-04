@@ -23,7 +23,7 @@ document.querySelector('.check').addEventListener('click', () => {
         guess > numberAleatory ? '📈 Too high!' : '📉 Too low!';
     }
   }
-  if (guess != numberAleatory) {
+  if (guess > 0) {
     score--;
     document.querySelector('.score').textContent = score;
   } else if (score == 0) {
@@ -67,6 +67,7 @@ document.querySelector('.btn.again').addEventListener('click', () => {
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.guess').value = '';
   document.querySelector('.message').textContent = 'Start guessing...';
+  score = 20;
   document.querySelector('.score').textContent = 20;
   numberAleatory;
   document.querySelector('.number').textContent = numberAleatory;
@@ -99,6 +100,7 @@ document.querySelector('.btn.ok').addEventListener('click', () => {
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.guess').value = '';
   document.querySelector('.message').textContent = 'Start guessing...';
+  score = 20;
   document.querySelector('.score').textContent = 20;
   document.querySelector('.highscore').textContent = 0;
   numberAleatory;
